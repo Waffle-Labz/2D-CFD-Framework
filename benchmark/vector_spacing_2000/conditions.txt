@@ -1,0 +1,41 @@
+Test: Benchmark speed against vector spacing
+
+Benchmark:
+Warm-up frames: 10
+Frame counts: 2000
+
+Independent variable:
+Vector spacing: 1,2,3,4,5,6,7,8,9,10
+
+
+Numerical settings:
+dt: 0.001
+Equation set: Euler
+Flux method: Lax-Friedrichs
+Gamma: 1.4
+Dynamic viscosity: 0.0018
+Thermal conductivity: 0.026
+Gas constant: 287.05
+
+Inflow conditions:
+Density: 1.0
+Velocity X: 10.0
+Velocity Y: 0.0
+Temperature: 300.0
+
+Initial conditions:
+Density: 1.0
+Velocity X: 0.0
+Velocity Y: 0.0
+Temperature: 300.0
+
+Boundary conditions:
+Persistent inflow: True
+Persistent outflow: True
+Slip walls: True
+
+Geometry:
+Shape: NONE
+X offset: 0
+Y offset: 0
+Vector Field: Velocity

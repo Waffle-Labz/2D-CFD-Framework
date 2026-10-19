@@ -17,6 +17,62 @@ The project explores how obstacle geometry influences the resulting pressure and
 - **Simulation data logging:** Records flow statistics over time, enabling trends and changes in the simulated flow to be investigated.
 - **Numerical-method analysis:** Provides a basis for comparing the behaviour and computational performance of implemented numerical methods.
 
+## Running the Simulator
+
+### Interactive Simulation
+
+Install the dependencies:
+
+```bash
+pip install pygame numpy matplotlib
+```
+
+Launch the simulator using:
+
+```bash
+python main.py
+```
+
+This starts the simulator with its default configuration, allowing you to interact with the simulation and explore the framework.
+
+### Example Usage
+
+Run the documented example using:
+
+```bash
+python usage.py
+```
+
+The example demonstrates how to initialise the simulator, configure a geometry, collect simulation metrics, and optionally export snapshots and CSV data. Its output depends on the configuration selected in `usage.py`.
+
+## Configuration
+
+The simulation can be customised through `usage.py` and the framework's constants file, `CFD/constants.py`.
+
+### Example Configuration
+
+Edit [`usage.py`](usage.py) to configure the example simulation. Depending on the options exposed by the framework, you can change:
+
+- **Geometry:** Select an obstacle such as a circle, rectangle, ellipse, wedge, diamond, rounded rectangle or NACA airfoil.
+- **Angle of attack:** Set the orientation of an airfoil.
+- **Simulation duration:** Specify the number of frames to run.
+- **Data collection:** Choose which flow metrics to record.
+- **Snapshot export:** Enable snapshot saving and configure its frequency.
+
+### Framework Defaults
+
+The file [`CFD/constants.py`](CFD/constants.py) contains default settings and other constants used throughout the framework. These include:
+
+- **Computational grid:** Screen dimensions and the number of cells in each direction.
+- **Initial conditions:** Default fluid and freestream density, velocity and temperature.
+- **Numerical methods:** Default equation set, numerical flux method, ratio of specific heats and fluid transport properties.
+- **Visualisation:** Default scalar field, colour scale, vector field, vector spacing and vector scale.
+- **Boundary behaviour:** Settings controlling persistent inflow, persistent outflow and slip walls.
+- **Simulation settings:** Default timestep and simulation speed.
+- **Data collection:** Available metrics for recording quantities such as speed, pressure, density, temperature, Mach number and CFL value.
+
+Changing these constants can affect the framework's default behaviour across simulations. Some settings may be overridden by the graphical interface or explicitly supplied configuration, so check how each constant is used before changing it.
+
 ## How It Works
 
 The framework represents the fluid as a two-dimensional grid of cells. Each cell stores the variables needed to describe the local flow state, while solid cells define the geometry of an obstacle.
@@ -34,6 +90,11 @@ Initial experiments demonstrate that obstacle geometry influences the spatial di
 The framework has also been applied to a NACA 2412 airfoil over a range of angles of attack, providing a basis for investigating how changes in orientation affect the computed flow field. Benchmarking experiments have additionally been used to examine the performance of the implemented numerical methods.
 
 These results demonstrate the framework's ability to run simulations and support comparative analysis. They should, however, be interpreted in light of the solver's current limitations rather than as validated aerodynamic predictions.
+
+## Further Documentation
+
+- [`ANALYSIS.md`](ANALYSIS.md) — Experimental results, geometry comparisons, airfoil simulations and performance benchmarks.
+- [`POSTMORTEM.md`](POSTMORTEM.md) — Reflections on the development process, implementation challenges and lessons learned.
 
 ## Limitations
 

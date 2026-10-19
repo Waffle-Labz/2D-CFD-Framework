@@ -96,6 +96,7 @@ animation = FuncAnimation(
 
 plt.tight_layout()
 
+# SAVES GIF
 # animation.save(
 #     "images/airfoils/20_speed_animation.gif",
 #     writer="pillow",
